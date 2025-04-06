@@ -17,8 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      artifact_id: ${{ steps.upload.outputs.artifact_id }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -29,12 +27,8 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
-      - name: Debug npm scripts
-        run: npm run
       - name: Build
         run: npm run build
-      - name: List build directory
-        run: ls -la
       - name: List build directory contents
         run: ls -la build || echo "Build directory not found"
       - name: List build/_app directory contents

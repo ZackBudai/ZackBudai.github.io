@@ -1,4 +1,5 @@
 <script>
+  import { base } from '$app/paths';
   const featuredProjects = [
     {
       title: 'Project 1',
@@ -36,10 +37,10 @@
           I'm a passionate developer specializing in web development. I love creating beautiful, functional, and user-friendly applications.
         </p>
         <div class="flex space-x-4">
-          <a href="/projects" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+          <a href="{base}/projects" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
             View My Work
           </a>
-          <a href="/contact" class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition-colors">
+          <a href="{base}/contact" class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition-colors">
             Contact Me
           </a>
         </div>

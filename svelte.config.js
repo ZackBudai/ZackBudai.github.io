@@ -22,8 +22,13 @@ const config = {
 			base: '/pages'
 		},
 		prerender: {
-			handleHttpError: 'warn',
-			entries: ['/']
+			handleHttpError: ({ path, referrer, message }) => {
+				// ignore all 404s
+				if (message.includes('Not found')) return;
+				// otherwise fail the build
+				throw new Error(message);
+			},
+			entries: ['*']
 		}
 	}
 };

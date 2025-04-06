@@ -39,7 +39,16 @@
   <section class="py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
-        <h1 class="text-4xl font-bold text-center mb-12">About Me</h1>
+        <h1 class="text-3xl font-bold mb-4">About Me</h1>
+        <p class="mb-4">
+          Welcome to my portfolio website! I am a passionate developer with expertise in web development.
+        </p>
+        <p class="mb-4">
+          I specialize in building modern web applications using technologies like SvelteKit, React, and Node.js.
+        </p>
+        <p class="mb-4">
+          Feel free to explore my projects and get in touch if you have any questions or opportunities.
+        </p>
         
         <!-- Bio Section -->
         <div class="mb-16">
