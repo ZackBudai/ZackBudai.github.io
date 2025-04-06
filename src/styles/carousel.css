@@ -4,8 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1200px;
-  overflow: hidden;
+  perspective: 2400px;
+  overflow: visible;
   position: relative;
 }
 
@@ -15,6 +15,7 @@
   height: 100%;
   transform-style: preserve-3d;
   transform-origin: center center;
+  will-change: transform;
 }
 
 .flap {
@@ -24,9 +25,13 @@
   backdrop-filter: blur(10px);
   border-radius: 15px;
   transform-style: preserve-3d;
-  backface-visibility: hidden;
+  backface-visibility: visible;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
 }
 
 .flap:hover {

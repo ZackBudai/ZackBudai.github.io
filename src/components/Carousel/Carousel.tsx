@@ -17,23 +17,24 @@ interface Props {
 
 const Carousel: React.FC<Props> = ({ projects }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
   
   // Create horizontal rotation animation based on scroll
   const rotation = useSpring(
-    useTransform(scrollY, 
-      [0, typeof window !== 'undefined' ? window.innerHeight * 2 : 2000],
+    useTransform(scrollYProgress, 
+      [0, 1],
       [0, 360] // One full rotation (360 degrees)
     ),
     { stiffness: 50, damping: 30 } // Smooth spring physics
   );
-
-  // Remove tilt effect for cleaner horizontal rotation
   
   // Helper function to position items in 3D space
   const positionItem = (index: number, total: number) => {
     const angle = (index / total) * 2 * Math.PI;
-    const radius = 400; // Carousel radius
+    const radius = 600; // Increased carousel radius for better visibility
     const x = radius * Math.cos(angle);
     const z = radius * Math.sin(angle);
     return { x, z, rotateY: (index / total) * -360 }; // Negative rotation for correct spin direction
@@ -46,7 +47,6 @@ const Carousel: React.FC<Props> = ({ projects }) => {
         style={{ 
           rotateY: rotation,
           transformStyle: 'preserve-3d',
-          perspective: 1200
         }}
       >
         {projects.map((project, index) => {
@@ -57,14 +57,7 @@ const Carousel: React.FC<Props> = ({ projects }) => {
               key={project.id}
               className="flap"
               style={{
-                position: 'absolute',
-                left: '50%',
-                top: '50%',
-                x,
-                z,
-                rotateY: `${rotateY}deg`,
-                translateX: '-50%',
-                translateY: '-50%',
+                transform: `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) rotateY(${rotateY}deg)`,
               }}
               whileHover={{ 
                 scale: 1.05,
