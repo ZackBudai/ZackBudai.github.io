@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import '../../styles/carousel.css';
 
 interface Project {
@@ -17,21 +17,33 @@ interface Props {
 
 const Carousel: React.FC<Props> = ({ projects }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+  const { scrollY } = useScroll();
+  
+  // Create smoother rotation animation with adjusted sensitivity
+  const rotation = useSpring(
+    useTransform(scrollY, 
+      [0, typeof window !== 'undefined' ? window.innerHeight : 1000],
+      [0, 720] // Increased rotation range for more dramatic effect
+    ),
+    { stiffness: 40, damping: 20 } // Adjusted spring physics for smoother motion
+  );
 
-  // Create rotation transform that will be used for the carousel
-  const rotation = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  // Add subtle tilt effect based on scroll position
+  const tiltX = useSpring(
+    useTransform(scrollY,
+      [0, typeof window !== 'undefined' ? window.innerHeight : 1000],
+      [-5, 5]
+    ),
+    { stiffness: 100, damping: 30 }
+  );
 
-  // Helper function to position flaps in a 3D circle
-  const positionFlap = (index: number, total: number) => {
+  // Helper function to position items in 3D space
+  const positionItem = (index: number, total: number) => {
     const angle = (index / total) * 2 * Math.PI;
-    const radius = 500; // Adjust radius as needed
+    const radius = 400; // Adjust this value to change the carousel size
     const x = radius * Math.sin(angle);
     const z = radius * Math.cos(angle);
-    return { x, z, angle: (index / total) * 360 };
+    return { x, z, rotateY: (index / total) * 360 };
   };
 
   return (
@@ -39,23 +51,34 @@ const Carousel: React.FC<Props> = ({ projects }) => {
       <motion.div 
         className="carousel" 
         style={{ 
-          rotateY: rotation 
+          rotateY: rotation,
+          rotateX: tiltX,
+          transformStyle: 'preserve-3d',
+          perspective: 1000
         }}
       >
         {projects.map((project, index) => {
-          const { x, z, angle } = positionFlap(index, projects.length);
+          const { x, z, rotateY } = positionItem(index, projects.length);
           
           return (
             <motion.div
               key={project.id}
               className="flap"
               style={{
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
                 x,
                 z,
-                rotateY: `${angle}deg`,
-                originZ: -400,
+                rotateY: `${rotateY}deg`,
+                translateX: '-50%',
+                translateY: '-50%',
               }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ 
+                scale: 1.05,
+                zIndex: 1,
+                transition: { duration: 0.2 }
+              }}
             >
               <div 
                 className="flap-image" 
@@ -96,7 +119,7 @@ const Carousel: React.FC<Props> = ({ projects }) => {
       </motion.div>
       
       <div className="scroll-indicator">
-        <p>Scroll to explore</p>
+        <p>Scroll to explore projects</p>
         <div className="scroll-arrow">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 20V4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
