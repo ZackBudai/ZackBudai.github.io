@@ -21,48 +21,13 @@ const Carousel: React.FC<Props> = ({ projects }) => {
     target: containerRef,
     offset: ["start end", "end start"]
   });
-  
-  // Helper function to position items in 3D space
-  const positionItem = (index: number, total: number, progress: number) => {
-    const verticalSpacing = 200; // Pixels between each card
-    const totalHeight = verticalSpacing * (total - 1);
-    const startY = -totalHeight / 2;
-    
-    // Calculate the center index based on scroll progress
-    const centerIndex = progress * (total - 1);
-    const distanceFromCenter = Math.abs(index - centerIndex);
-    
-    // Calculate y position
-    const y = startY + (index * verticalSpacing);
-    
-    // Calculate z offset - items further from center move back
-    const z = -Math.abs(distanceFromCenter) * 200;
-    
-    // Calculate rotation - items rotate more as they get further from center
-    const rotateX = distanceFromCenter * 20;
-    
-    return { y, z, rotateX };
-  };
 
-  // Create transforms outside the render function for each project
-  const projectTransforms = projects.map((_, index) => {
-    const transformStyle = useTransform(
-      scrollYProgress,
-      [0, 1],
-      [
-        `translate(-50%, -50%) translateY(${positionItem(index, projects.length, 0).y}px) translateZ(${positionItem(index, projects.length, 0).z}px) rotateX(${positionItem(index, projects.length, 0).rotateX}deg)`,
-        `translate(-50%, -50%) translateY(${positionItem(index, projects.length, 1).y}px) translateZ(${positionItem(index, projects.length, 1).z}px) rotateX(${positionItem(index, projects.length, 1).rotateX}deg)`
-      ]
-    );
+  const verticalSpacing = 200;
+  const totalHeight = verticalSpacing * (projects.length - 1);
+  const startY = -totalHeight / 2;
 
-    const opacity = useTransform(
-      scrollYProgress,
-      [0, 1],
-      [index === 0 ? 1 : 0.3, index === projects.length - 1 ? 1 : 0.3]
-    );
-
-    return { transform: transformStyle, opacity };
-  });
+  // Single transform value for scroll progress
+  const progress = useTransform(scrollYProgress, [0, 1], [0, projects.length - 1]);
 
   return (
     <div className="carousel-container" ref={containerRef}>
@@ -72,54 +37,60 @@ const Carousel: React.FC<Props> = ({ projects }) => {
           transformStyle: 'preserve-3d',
         }}
       >
-        {projects.map((project, index) => {
-          const { transform, opacity } = projectTransforms[index];
-          
-          return (
-            <motion.div
-              key={project.id}
-              className="flap"
-              style={{
-                transform,
-                opacity
-              }}
-            >
-              <div 
-                className="flap-image" 
-                style={{ backgroundImage: `url(${project.image})` }} 
-              />
+        {projects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            className="flap"
+            style={{
+              x: '-50%',
+              y: '-50%',
+              position: 'absolute',
+              left: '50%',
+              top: '50%'
+            }}
+            animate={{
+              y: `calc(-50% + ${startY + (index * verticalSpacing)}px)`,
+              z: progress.get() ? -Math.abs(index - progress.get()) * 200 : 0,
+              rotateX: progress.get() ? Math.abs(index - progress.get()) * 20 : 0,
+              opacity: progress.get() ? Math.max(1 - Math.abs(index - progress.get()) * 0.3, 0.3) : 1
+            }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          >
+            <div 
+              className="flap-image" 
+              style={{ backgroundImage: `url(${project.image})` }} 
+            />
+            
+            <div className="flap-content">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
               
-              <div className="flap-content">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
+              <div className="flap-buttons">
+                {project.demoUrl && (
+                  <a 
+                    href={project.demoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flap-button"
+                  >
+                    Live Demo
+                  </a>
+                )}
                 
-                <div className="flap-buttons">
-                  {project.demoUrl && (
-                    <a 
-                      href={project.demoUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flap-button"
-                    >
-                      Live Demo
-                    </a>
-                  )}
-                  
-                  {project.codeUrl && (
-                    <a 
-                      href={project.codeUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flap-button secondary"
-                    >
-                      View Code
-                    </a>
-                  )}
-                </div>
+                {project.codeUrl && (
+                  <a 
+                    href={project.codeUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flap-button secondary"
+                  >
+                    View Code
+                  </a>
+                )}
               </div>
-            </motion.div>
-          );
-        })}
+            </div>
+          </motion.div>
+        ))}
       </motion.div>
       
       <div className="scroll-indicator">
