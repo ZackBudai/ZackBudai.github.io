@@ -22,7 +22,8 @@ const config = {
 			base: process.env.NODE_ENV === 'production' ? '/pages' : ''
 		},
 		prerender: {
-			handleHttpError: 'warn'
+			handleHttpError: 'warn',
+			entries: ['/']
 		}
 	}
 };
