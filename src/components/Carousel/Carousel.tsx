@@ -19,31 +19,24 @@ const Carousel: React.FC<Props> = ({ projects }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   
-  // Create smoother rotation animation with adjusted sensitivity
+  // Create horizontal rotation animation based on scroll
   const rotation = useSpring(
     useTransform(scrollY, 
-      [0, typeof window !== 'undefined' ? window.innerHeight : 1000],
-      [0, 720] // Increased rotation range for more dramatic effect
+      [0, typeof window !== 'undefined' ? window.innerHeight * 2 : 2000],
+      [0, 360] // One full rotation (360 degrees)
     ),
-    { stiffness: 40, damping: 20 } // Adjusted spring physics for smoother motion
+    { stiffness: 50, damping: 30 } // Smooth spring physics
   );
 
-  // Add subtle tilt effect based on scroll position
-  const tiltX = useSpring(
-    useTransform(scrollY,
-      [0, typeof window !== 'undefined' ? window.innerHeight : 1000],
-      [-5, 5]
-    ),
-    { stiffness: 100, damping: 30 }
-  );
-
+  // Remove tilt effect for cleaner horizontal rotation
+  
   // Helper function to position items in 3D space
   const positionItem = (index: number, total: number) => {
     const angle = (index / total) * 2 * Math.PI;
-    const radius = 400; // Adjust this value to change the carousel size
-    const x = radius * Math.sin(angle);
-    const z = radius * Math.cos(angle);
-    return { x, z, rotateY: (index / total) * 360 };
+    const radius = 400; // Carousel radius
+    const x = radius * Math.cos(angle);
+    const z = radius * Math.sin(angle);
+    return { x, z, rotateY: (index / total) * -360 }; // Negative rotation for correct spin direction
   };
 
   return (
@@ -52,9 +45,8 @@ const Carousel: React.FC<Props> = ({ projects }) => {
         className="carousel" 
         style={{ 
           rotateY: rotation,
-          rotateX: tiltX,
           transformStyle: 'preserve-3d',
-          perspective: 1000
+          perspective: 1200
         }}
       >
         {projects.map((project, index) => {

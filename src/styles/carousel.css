@@ -1,38 +1,32 @@
 .carousel-container {
-  position: relative;
-  height: 100vh;
   width: 100%;
-  perspective: 2000px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
   overflow: hidden;
+  position: relative;
 }
 
 .carousel {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
   transform-origin: center center;
-  will-change: transform;
 }
 
 .flap {
-  position: absolute;
   width: 300px;
   height: 400px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 25px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  will-change: transform;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
 .flap:hover {
@@ -43,6 +37,8 @@
 }
 
 .flap-content {
+  padding: 20px;
+  color: white;
   z-index: 1;
 }
 
@@ -59,13 +55,14 @@
 }
 
 .flap-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px 15px 0 0;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 60%;
-  background-size: cover;
-  background-position: center;
   z-index: 0;
   opacity: 0.6;
 }
@@ -107,33 +104,8 @@
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
-.scroll-indicator:hover {
-  opacity: 1;
-}
-
-.scroll-indicator p {
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-  color: var(--light-color);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.scroll-arrow {
-  width: 30px;
-  height: 30px;
-  border: 2px solid var(--light-color);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  color: white;
   animation: bounce 2s infinite;
 }
 
