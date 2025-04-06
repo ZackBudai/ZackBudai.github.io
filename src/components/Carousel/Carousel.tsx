@@ -44,6 +44,26 @@ const Carousel: React.FC<Props> = ({ projects }) => {
     return { y, z, rotateX };
   };
 
+  // Create transforms outside the render function for each project
+  const projectTransforms = projects.map((_, index) => {
+    const transformStyle = useTransform(
+      scrollYProgress,
+      [0, 1],
+      [
+        `translate(-50%, -50%) translateY(${positionItem(index, projects.length, 0).y}px) translateZ(${positionItem(index, projects.length, 0).z}px) rotateX(${positionItem(index, projects.length, 0).rotateX}deg)`,
+        `translate(-50%, -50%) translateY(${positionItem(index, projects.length, 1).y}px) translateZ(${positionItem(index, projects.length, 1).z}px) rotateX(${positionItem(index, projects.length, 1).rotateX}deg)`
+      ]
+    );
+
+    const opacity = useTransform(
+      scrollYProgress,
+      [0, 1],
+      [index === 0 ? 1 : 0.3, index === projects.length - 1 ? 1 : 0.3]
+    );
+
+    return { transform: transformStyle, opacity };
+  });
+
   return (
     <div className="carousel-container" ref={containerRef}>
       <motion.div 
@@ -53,27 +73,15 @@ const Carousel: React.FC<Props> = ({ projects }) => {
         }}
       >
         {projects.map((project, index) => {
+          const { transform, opacity } = projectTransforms[index];
+          
           return (
             <motion.div
               key={project.id}
               className="flap"
               style={{
-                transform: useTransform(
-                  scrollYProgress,
-                  [0, 1],
-                  [`translate(-50%, -50%) translateY(${positionItem(index, projects.length, 0).y}px) 
-                     translateZ(${positionItem(index, projects.length, 0).z}px) 
-                     rotateX(${positionItem(index, projects.length, 0).rotateX}deg)`,
-                   `translate(-50%, -50%) translateY(${positionItem(index, projects.length, 1).y}px) 
-                     translateZ(${positionItem(index, projects.length, 1).z}px) 
-                     rotateX(${positionItem(index, projects.length, 1).rotateX}deg)`
-                  ]
-                ),
-                opacity: useTransform(
-                  scrollYProgress,
-                  [0, 1],
-                  [index === 0 ? 1 : 0.3, index === projects.length - 1 ? 1 : 0.3]
-                )
+                transform,
+                opacity
               }}
             >
               <div 
