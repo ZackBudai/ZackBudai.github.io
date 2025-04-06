@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
             (scrollPosition - startRotationPoint) / (endRotationPoint - startRotationPoint)
         ));
         
-        // Calculate rotation angle (from 90 to 270 degrees for a full forward rotation)
-        const rotation = 90 + (progress * 180);
+        // Calculate rotation angle (from -90 to 90 degrees for a clockwise rotation)
+        const rotation = -90 + (progress * 180);
         
         // Apply the rotation transform while maintaining center position
-        panel.style.transform = `translateX(-50%) rotateY(${rotation}deg)`;
+        panel.style.transform = `translateX(-50%) rotateY(${rotation}deg) scaleX(-1)`;
     });
 });

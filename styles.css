@@ -36,7 +36,7 @@ footer {
     align-items: center;
     min-height: 50vh;
     perspective: 2000px;
-    perspective-origin: center;
+    perspective-origin: right center;
     position: relative;
 }
 
@@ -52,7 +52,7 @@ footer {
     transform-origin: center center;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) rotateY(90deg); /* Initial position: parallel to screen */
+    transform: translateX(-50%) rotateY(-90deg) scaleX(-1);  /* Initial position with corrected orientation */
     backface-visibility: visible;
 }
 
