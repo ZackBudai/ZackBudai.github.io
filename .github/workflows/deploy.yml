@@ -27,6 +27,8 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
+      - name: Debug npm scripts
+        run: npm run
       - name: Build
         run: npm run build
       - name: List build directory
