@@ -1,46 +1,90 @@
-# Getting Started with Create React App
+# Developer & Engineer Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive portfolio website built with React, TypeScript, and Framer Motion. Features a unique 3D carousel that rotates as users scroll down the page, showcasing projects with a beautiful 3D effect.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **3D Project Carousel**: Interactive carousel that rotates as you scroll
+- **Responsive Design**: Looks great on all devices from mobile to desktop
+- **Modern UI**: Clean, modern UI with smooth animations
+- **TypeScript**: Type-safe code for better reliability
+- **Framer Motion**: Powerful animation library for fluid motion effects
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Node.js (v14 or higher)
+- npm or yarn
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ZackBudai/ZackBudai.github.io.git
+   cd ZackBudai.github.io
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Customizing the Portfolio
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Project Data
 
-### `npm run eject`
+Edit the `src/components/Projects/ProjectsData.tsx` file to add your own projects:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```typescript
+export const projects: Project[] = [
+  {
+    id: 1,
+    title: "Your Project Name",
+    description: "Project description",
+    image: "image_url",
+    technologies: ["Tech1", "Tech2"],
+    demoUrl: "https://example.com/demo",
+    codeUrl: "https://github.com/yourusername/project"
+  },
+  // Add more projects...
+];
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Personal Information
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Modify the `src/components/About/About.tsx` file to update your personal information, skills, and experience.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Deployment
 
-## Learn More
+This portfolio is configured to deploy to GitHub Pages automatically.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Push your changes to the GitHub repository:
+   ```bash
+   git add .
+   git commit -m "Update portfolio"
+   git push
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Deploy to GitHub Pages:
+   ```bash
+   npm run deploy
+   ```
+
+The site will be available at `https://zackbudai.github.io`.
+
+## Built With
+
+- [React](https://reactjs.org/) - The web framework used
+- [TypeScript](https://www.typescriptlang.org/) - For type-safe code
+- [Framer Motion](https://www.framer.com/motion/) - For animations
+- [GitHub Pages](https://pages.github.com/) - For hosting
+
+## License
+
+This project is licensed under the MIT License.
