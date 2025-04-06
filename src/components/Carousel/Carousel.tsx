@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import '../../styles/carousel.css';
 
 interface Project {
@@ -19,25 +19,29 @@ const Carousel: React.FC<Props> = ({ projects }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start end", "end start"]
   });
   
-  // Create horizontal rotation animation based on scroll
-  const rotation = useSpring(
-    useTransform(scrollYProgress, 
-      [0, 1],
-      [0, 360] // One full rotation (360 degrees)
-    ),
-    { stiffness: 50, damping: 30 } // Smooth spring physics
-  );
-  
   // Helper function to position items in 3D space
-  const positionItem = (index: number, total: number) => {
-    const angle = (index / total) * 2 * Math.PI;
-    const radius = 600; // Increased carousel radius for better visibility
-    const x = radius * Math.cos(angle);
-    const z = radius * Math.sin(angle);
-    return { x, z, rotateY: (index / total) * -360 }; // Negative rotation for correct spin direction
+  const positionItem = (index: number, total: number, progress: number) => {
+    const verticalSpacing = 200; // Pixels between each card
+    const totalHeight = verticalSpacing * (total - 1);
+    const startY = -totalHeight / 2;
+    
+    // Calculate the center index based on scroll progress
+    const centerIndex = progress * (total - 1);
+    const distanceFromCenter = Math.abs(index - centerIndex);
+    
+    // Calculate y position
+    const y = startY + (index * verticalSpacing);
+    
+    // Calculate z offset - items further from center move back
+    const z = -Math.abs(distanceFromCenter) * 200;
+    
+    // Calculate rotation - items rotate more as they get further from center
+    const rotateX = distanceFromCenter * 20;
+    
+    return { y, z, rotateX };
   };
 
   return (
@@ -45,24 +49,31 @@ const Carousel: React.FC<Props> = ({ projects }) => {
       <motion.div 
         className="carousel" 
         style={{ 
-          rotateY: rotation,
           transformStyle: 'preserve-3d',
         }}
       >
         {projects.map((project, index) => {
-          const { x, z, rotateY } = positionItem(index, projects.length);
-          
           return (
             <motion.div
               key={project.id}
               className="flap"
               style={{
-                transform: `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) rotateY(${rotateY}deg)`,
-              }}
-              whileHover={{ 
-                scale: 1.05,
-                zIndex: 1,
-                transition: { duration: 0.2 }
+                transform: useTransform(
+                  scrollYProgress,
+                  [0, 1],
+                  [`translate(-50%, -50%) translateY(${positionItem(index, projects.length, 0).y}px) 
+                     translateZ(${positionItem(index, projects.length, 0).z}px) 
+                     rotateX(${positionItem(index, projects.length, 0).rotateX}deg)`,
+                   `translate(-50%, -50%) translateY(${positionItem(index, projects.length, 1).y}px) 
+                     translateZ(${positionItem(index, projects.length, 1).z}px) 
+                     rotateX(${positionItem(index, projects.length, 1).rotateX}deg)`
+                  ]
+                ),
+                opacity: useTransform(
+                  scrollYProgress,
+                  [0, 1],
+                  [index === 0 ? 1 : 0.3, index === projects.length - 1 ? 1 : 0.3]
+                )
               }}
             >
               <div 
