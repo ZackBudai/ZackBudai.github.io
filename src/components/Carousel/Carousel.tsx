@@ -22,79 +22,96 @@ const Carousel: React.FC<Props> = ({ projects }) => {
     offset: ["start end", "end start"]
   });
 
-  const verticalSpacing = 200;
-  const totalHeight = verticalSpacing * (projects.length - 1);
-  const startY = -totalHeight / 2;
-
-  // Single transform value for scroll progress
-  const progress = useTransform(scrollYProgress, [0, 1], [0, projects.length - 1]);
+  // Create rotation based on scroll
+  const currentIndex = useTransform(scrollYProgress, [0, 1], [0, projects.length - 1]);
+  const rotateX = useTransform(currentIndex, (value) => {
+    const decimal = value % 1;
+    return decimal * -180; // Rotate 180 degrees per panel
+  });
 
   return (
     <div className="carousel-container" ref={containerRef}>
       <motion.div 
-        className="carousel" 
+        className="carousel-wrapper"
         style={{ 
-          transformStyle: 'preserve-3d',
+          perspective: 1200,
+          transformStyle: 'preserve-3d'
         }}
       >
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            className="flap"
-            style={{
-              x: '-50%',
-              y: '-50%',
-              position: 'absolute',
-              left: '50%',
-              top: '50%'
-            }}
-            animate={{
-              y: `calc(-50% + ${startY + (index * verticalSpacing)}px)`,
-              z: progress.get() ? -Math.abs(index - progress.get()) * 200 : 0,
-              rotateX: progress.get() ? Math.abs(index - progress.get()) * 20 : 0,
-              opacity: progress.get() ? Math.max(1 - Math.abs(index - progress.get()) * 0.3, 0.3) : 1
-            }}
-            transition={{ type: "spring", stiffness: 400, damping: 30 }}
-          >
-            <div 
-              className="flap-image" 
-              style={{ backgroundImage: `url(${project.image})` }} 
-            />
-            
-            <div className="flap-content">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
+        {projects.map((project, index) => {
+          // Calculate if this panel should be visible based on scroll position
+          const isVisible = useTransform(currentIndex, (value) => {
+            const decimal = value % 1;
+            const currentWholeIndex = Math.floor(value);
+            return currentWholeIndex === index || 
+                   (decimal > 0 && currentWholeIndex + 1 === index);
+          });
+
+          return (
+            <motion.div
+              key={project.id}
+              className="flap"
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                x: '-50%',
+                y: '-50%',
+                rotateX: useTransform(currentIndex, (value) => {
+                  if (Math.floor(value) === index) {
+                    // Current panel rotates from 0 to -180
+                    return (value % 1) * -180;
+                  } else if (Math.floor(value) + 1 === index) {
+                    // Next panel rotates from 180 to 0
+                    return 180 - ((value % 1) * 180);
+                  }
+                  // Other panels stay at their rest position
+                  return index > Math.floor(value) ? 180 : -180;
+                }),
+                opacity: isVisible,
+                zIndex: projects.length - index
+              }}
+            >
+              <div 
+                className="flap-image" 
+                style={{ backgroundImage: `url(${project.image})` }} 
+              />
               
-              <div className="flap-buttons">
-                {project.demoUrl && (
-                  <a 
-                    href={project.demoUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flap-button"
-                  >
-                    Live Demo
-                  </a>
-                )}
+              <div className="flap-content">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
                 
-                {project.codeUrl && (
-                  <a 
-                    href={project.codeUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flap-button secondary"
-                  >
-                    View Code
-                  </a>
-                )}
+                <div className="flap-buttons">
+                  {project.demoUrl && (
+                    <a 
+                      href={project.demoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flap-button"
+                    >
+                      Live Demo
+                    </a>
+                  )}
+                  
+                  {project.codeUrl && (
+                    <a 
+                      href={project.codeUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flap-button secondary"
+                    >
+                      View Code
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </motion.div>
       
       <div className="scroll-indicator">
-        <p>Scroll to explore projects</p>
+        <p>Scroll to flip through projects</p>
         <div className="scroll-arrow">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 20V4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
