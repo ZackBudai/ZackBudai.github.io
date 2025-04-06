@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
             (scrollPosition - startRotationPoint) / (endRotationPoint - startRotationPoint)
         ));
         
-        // Calculate rotation angle (from -180 to 0 degrees)
-        const rotation = -180 + (progress * 180);
+        // Calculate rotation angle (from -90 to 0 degrees)
+        const rotation = -90 + (progress * 90);
         
-        // Apply the rotation transform
+        // Apply the rotation transform and adjust the position to compensate for the rotation
         panel.style.transform = `rotateY(${rotation}deg)`;
     });
 });

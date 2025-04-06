@@ -35,7 +35,8 @@ footer {
     justify-content: center;
     align-items: center;
     min-height: 50vh;
-    perspective: 1000px;
+    perspective: 2000px;
+    perspective-origin: center;
 }
 
 #rotating-panel {
@@ -47,6 +48,9 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transform-style: preserve-3d;
     transition: transform 0.1s ease;
+    transform-origin: left center;
+    position: relative;
+    backface-visibility: hidden;
 }
 
 .panel-content {
