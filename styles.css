@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header, .intro, .outro {
+    padding: 5vh 5vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.carousel-container {
+    position: relative;
+    height: 500vh; /* Height for 5 panels */
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.carousel {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.panel {
+    position: absolute;
+    width: 60vw;
+    height: 60vh;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.content p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+/* Panel-specific styles for visual variety */
+.panel[data-index="1"] { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+.panel[data-index="2"] { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); }
+.panel[data-index="3"] { background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); }
+.panel[data-index="4"] { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); }
+.panel[data-index="5"] { background: linear-gradient(135deg, #a6c0fe 0%, #f68084 100%); }
+
+/* Panel rotation and opacity will be handled by JavaScript */
