@@ -36,8 +36,9 @@ footer {
     align-items: center;
     min-height: 50vh;
     perspective: 2000px;
-    perspective-origin: right center;
+    perspective-origin: center;
     position: relative;
+    overflow: visible;
 }
 
 #rotating-panel {
@@ -49,10 +50,11 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transform-style: preserve-3d;
     transition: transform 0.1s ease;
-    transform-origin: center center;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) rotateY(-90deg) scaleX(-1);  /* Initial position with corrected orientation */
+    transform-origin: left;
+    /* Initial position: panel edge at center, rotated to be invisible */
+    transform: translateX(0) rotateY(90deg);
     backface-visibility: visible;
 }
 
