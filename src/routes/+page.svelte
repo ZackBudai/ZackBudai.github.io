@@ -3,19 +3,19 @@
     {
       title: 'Project 1',
       description: 'A brief description of your first project. Explain what problems it solves and what technologies you used.',
-      image: '/project1.jpg',
+      image: '/images/project1.jpg',
       link: 'https://github.com/yourusername/project1'
     },
     {
       title: 'Project 2',
       description: 'Description of your second project. Highlight your role and the impact it had.',
-      image: '/project2.jpg',
+      image: '/images/project2.jpg',
       link: 'https://github.com/yourusername/project2'
     },
     {
       title: 'Project 3',
       description: 'Details about your third project. Mention any interesting challenges you faced.',
-      image: '/project3.jpg',
+      image: '/images/project3.jpg',
       link: 'https://github.com/yourusername/project3'
     }
   ];

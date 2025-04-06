@@ -31,6 +31,10 @@ jobs:
         run: npm run build
       - name: List build directory
         run: ls -la
+      - name: List build directory contents
+        run: ls -la build || echo "Build directory not found"
+      - name: Create .nojekyll file
+        run: touch build/.nojekyll
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

@@ -3,7 +3,7 @@
     {
       title: 'Project 1',
       description: 'A comprehensive description of your first project. Explain the problem it solves, your role, and the technologies used.',
-      image: '/project1.jpg',
+      image: '/images/project1.jpg',
       link: 'https://github.com/yourusername/project1',
       technologies: ['React', 'Node.js', 'MongoDB'],
       features: [
@@ -15,7 +15,7 @@
     {
       title: 'Project 2',
       description: 'Detailed description of your second project. Include the challenges faced and how you overcame them.',
-      image: '/project2.jpg',
+      image: '/images/project2.jpg',
       link: 'https://github.com/yourusername/project2',
       technologies: ['Vue.js', 'Firebase', 'Tailwind CSS'],
       features: [
@@ -27,7 +27,7 @@
     {
       title: 'Project 3',
       description: 'In-depth description of your third project. Highlight the impact and results achieved.',
-      image: '/project3.jpg',
+      image: '/images/project3.jpg',
       link: 'https://github.com/yourusername/project3',
       technologies: ['SvelteKit', 'PostgreSQL', 'Docker'],
       features: [
