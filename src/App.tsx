@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/ZackBudai.github.io">
+    <Router>
       <Routes>
         <Route path="/" element={<Projects />} />
         <Route path="/project/:id" element={<ProjectDetails />} />
