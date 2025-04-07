@@ -266,25 +266,49 @@ body {
 .projects-link-container {
   position: fixed;
   top: 2rem;
-  left: 2rem;
+  right: 2rem;
   z-index: 10;
 }
 
 .projects-link {
-  font-size: 1.2rem;
-  color: var(--primary-color);
+  font-size: 1.1rem;
+  color: var(--text-color);
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--primary-glow);
-  border-radius: 4px;
-  background: var(--bg-darker);
-  box-shadow: 0 0 20px var(--primary-glow);
-  transition: all 0.3s ease;
+  padding: 0.7rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(183, 45, 255, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    var(--primary-glow) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .projects-link:hover {
-  box-shadow: 0 0 30px var(--primary-glow);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
   transform: translateY(-2px);
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.projects-link:hover::before {
+  opacity: 0.1;
 }
 
 .home-content {
