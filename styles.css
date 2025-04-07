@@ -24,7 +24,7 @@ footer {
 }
 
 .spacer {
-    height: 80vh;
+    height: 40vh;  /* Reduced from 80vh to bring panels closer together */
     display: flex;
     align-items: center;
     justify-content: center;
