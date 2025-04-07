@@ -24,7 +24,7 @@ footer {
 }
 
 .spacer {
-    height: 20vh;  /* Reduced from 80vh to bring panels closer together */
+    height: 10vh;  /* Reduced from 80vh to bring panels closer together */
     display: flex;
     align-items: center;
     justify-content: center;
