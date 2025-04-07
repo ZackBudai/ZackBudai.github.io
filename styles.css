@@ -17,8 +17,6 @@ header, footer {
     padding: 2rem;
     background-color: #333;
     color: #fff;
-    position: relative;
-    z-index: 2;
 }
 
 footer {
@@ -32,22 +30,14 @@ footer {
     justify-content: center;
 }
 
-.panels-container {
-    position: relative;
-    min-height: 400vh;
-    perspective: 2000px;
-    perspective-origin: center;
-}
-
-.panel-wrapper {
-    position: sticky;
-    top: 50vh;
-    transform: translateY(-50%);
-    height: 400px;
+.panel-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    min-height: 50vh;
+    perspective: 2000px;
+    perspective-origin: center;
+    position: relative;
 }
 
 .rotating-panel {
@@ -69,12 +59,6 @@ footer {
 .panel-content {
     padding: 2rem;
     text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.panel-content.visible {
-    opacity: 1;
 }
 
 .panel-content h2 {
