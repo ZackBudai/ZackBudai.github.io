@@ -5,7 +5,10 @@
   --accent-glow: #ff6b2c40;
   --bg-dark: #0a0a0f;
   --bg-darker: #050507;
-  --panel-bg: #12121a;
+  --panel-bg: rgba(18, 18, 26, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.12);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
   --text-color: #e0e0e0;
   --text-dim: #a0a0a0;
 }
@@ -22,8 +25,13 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
-  background: radial-gradient(circle at 50% -20%, var(--primary-glow) 0%, transparent 70%),
-              radial-gradient(circle at 80% 50%, var(--accent-glow) 0%, transparent 50%);
+  background: 
+    radial-gradient(circle at 0% -50%, var(--primary-glow) 0%, transparent 50%),
+    radial-gradient(circle at 100% 50%, var(--accent-glow) 0%, transparent 50%),
+    var(--bg-dark);
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
 .logo {
@@ -77,7 +85,11 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, var(--bg-darker) 0%, var(--panel-bg) 100%);
+  background: linear-gradient(135deg, 
+    rgba(5, 5, 7, 0.8) 0%, 
+    rgba(18, 18, 26, 0.4) 100%
+  );
+  backdrop-filter: blur(20px);
   color: var(--text-color);
   margin-bottom: 4rem;
   position: relative;
@@ -96,7 +108,7 @@ body {
     var(--primary-glow) 50%,
     transparent 100%
   );
-  opacity: 0.1;
+  opacity: 0.05;
   animation: headerGlow 8s infinite;
 }
 
@@ -146,14 +158,15 @@ body {
   max-width: 1000px;
   min-height: 500px;
   background-color: var(--panel-bg);
-  border: 1px solid var(--primary-glow);
+  border: 1px solid var(--glass-border);
   border-radius: 20px;
-  box-shadow: 0 0 30px var(--primary-glow),
-              inset 0 0 20px var(--primary-glow);
+  box-shadow: 
+    0 8px 32px var(--glass-shadow),
+    inset 0 0 32px var(--glass-highlight);
   position: absolute;
   left: 50%;
   transform-origin: right center !important;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 }
 
 .panel-content {
@@ -165,17 +178,23 @@ body {
 }
 
 .project-card {
-  background: var(--bg-darker);
+  background: rgba(18, 18, 26, 0.3);
   border-radius: 15px;
   padding: 1.5rem;
-  box-shadow: 0 0 20px rgba(183, 45, 255, 0.1);
-  border: 1px solid var(--primary-glow);
+  border: 1px solid var(--glass-border);
+  box-shadow: 
+    0 4px 24px var(--glass-shadow),
+    inset 0 0 16px var(--glass-highlight);
+  backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 }
 
 .project-card:hover {
-  box-shadow: 0 0 30px var(--primary-glow);
   border-color: var(--primary-color);
+  box-shadow: 
+    0 8px 32px var(--primary-glow),
+    inset 0 0 24px var(--glass-highlight);
+  background: rgba(183, 45, 255, 0.1);
 }
 
 .project-card h2 {
@@ -221,10 +240,10 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: var(--bg-darker);
-  border-bottom: 1px solid var(--primary-glow);
-  box-shadow: 0 0 20px var(--primary-glow);
-  backdrop-filter: blur(10px);
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--glass-shadow);
+  backdrop-filter: blur(12px);
   z-index: 1000;
 }
 
@@ -235,22 +254,39 @@ body {
 }
 
 .back-button {
-  color: var(--accent-color);
+  color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
-  text-shadow: 0 0 10px var(--accent-glow);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(8px);
+  box-shadow: 
+    0 4px 16px var(--glass-shadow),
+    inset 0 0 8px var(--glass-highlight);
   transition: all 0.3s ease;
 }
 
 .back-button:hover {
-  color: var(--primary-color);
-  text-shadow: 0 0 15px var(--primary-glow);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  box-shadow: 
+    0 8px 24px var(--accent-glow),
+    inset 0 0 16px var(--glass-highlight);
+  background: rgba(255, 107, 44, 0.1);
 }
 
+/* Glass card for project details */
 .project-content {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 2rem;
+  background: var(--panel-bg);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  box-shadow: 
+    0 8px 32px var(--glass-shadow),
+    inset 0 0 32px var(--glass-highlight);
 }
 
 .home-container {
@@ -261,6 +297,38 @@ body {
   align-items: center;
   background: var(--bg-dark);
   position: relative;
+}
+
+.home-container::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    var(--bg-dark) 100%
+  );
+  z-index: -1;
+}
+
+.home-container::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    linear-gradient(to right, var(--primary-glow) 0%, transparent 100%),
+    linear-gradient(to bottom, var(--accent-glow) 0%, transparent 100%);
+  opacity: 0.1;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.15; }
 }
 
 .projects-link-container {
@@ -275,10 +343,13 @@ body {
   color: var(--text-color);
   text-decoration: none;
   padding: 0.7rem 1.5rem;
-  background: transparent;
-  border: 1px solid rgba(183, 45, 255, 0.3);
+  background: var(--panel-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 8px;
   backdrop-filter: blur(8px);
+  box-shadow: 
+    0 4px 16px var(--glass-shadow),
+    inset 0 0 8px var(--glass-highlight);
   transition: all 0.4s ease;
   letter-spacing: 0.5px;
   position: relative;
@@ -304,7 +375,10 @@ body {
   border-color: var(--primary-color);
   color: var(--primary-color);
   transform: translateY(-2px);
-  box-shadow: 0 0 20px var(--primary-glow);
+  box-shadow: 
+    0 8px 24px var(--primary-glow),
+    inset 0 0 16px var(--glass-highlight);
+  background: rgba(183, 45, 255, 0.1);
 }
 
 .projects-link:hover::before {
@@ -322,7 +396,9 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 0 30px var(--primary-glow);
+  text-shadow: 
+    0 0 30px var(--primary-glow),
+    0 0 60px var(--accent-glow);
 }
 
 .home-content p {
