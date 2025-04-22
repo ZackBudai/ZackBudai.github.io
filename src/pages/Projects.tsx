@@ -25,13 +25,12 @@ const projects = [
 export const Projects = () => {
   return (
     <div className="projects">
-      <header className="projects-header">
+      <div className="projects-header">
         <div className="header-content">
           <h1>My Projects</h1>
           <p>Discover some of my recent work and personal projects</p>
         </div>
-      </header>
-
+      </div>
       <div className="panels-container">
         {projects.map(project => (
           <React.Fragment key={project.id}>
