@@ -3,7 +3,7 @@ import { Home } from './pages/Home';
 import { Projects } from './pages/Projects';
 import { ProjectDetails } from './pages/ProjectDetails';
 import About from './pages/About';
-import Academics from './pages/Academics';
+import { Academics } from './pages/Academics';
 import './App.css';
 
 function App() {
