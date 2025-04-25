@@ -7,6 +7,7 @@ import { Projects } from './pages/Projects'
 import { ProjectDetails } from './pages/ProjectDetails'
 import About from './pages/About'
 import Academics from './pages/Academics'
+import NotFound from './pages/NotFound'
 import App from './App.tsx'
 
 const router = createBrowserRouter([
@@ -18,8 +19,10 @@ const router = createBrowserRouter([
       { path: "projects", element: <Projects /> },
       { path: "project/:id", element: <ProjectDetails /> },
       { path: "about", element: <About /> },
-      { path: "academics", element: <Academics /> }
-    ]
+      { path: "academics", element: <Academics /> },
+      { path: "*", element: <NotFound /> } // Catch-all route for 404 errors
+    ],
+    errorElement: <NotFound /> // Global error handler for route errors
   }
 ], {
   // Configure basename for GitHub Pages
