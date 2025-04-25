@@ -12,23 +12,20 @@ export const TransitionLayout = ({ children }: TransitionLayoutProps) => {
   const [displayChildren, setDisplayChildren] = useState(children);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Handle location changes
   useEffect(() => {
     if (isTransitioning) {
-      // We're in the middle of a fade out, wait for it to complete
       const timer = setTimeout(() => {
         setDisplayChildren(children);
         setTransitionStage('fadeIn');
         setIsTransitioning(false);
         document.body.classList.remove('transitioning');
-      }, 500); // Match this with your CSS transition duration
+      }, 500);
       return () => clearTimeout(timer);
     } else {
       setDisplayChildren(children);
     }
   }, [location, children, isTransitioning]);
 
-  // Listen for transition start events from TransitionLink
   useEffect(() => {
     const handleTransitionStart = () => {
       setTransitionStage('fadeOut');
@@ -44,8 +41,8 @@ export const TransitionLayout = ({ children }: TransitionLayoutProps) => {
   }, []);
 
   return (
-    <div className={`glass-transition ${transitionStage}`}>
+    <main className={`page-wrapper ${transitionStage}`}>
       {displayChildren}
-    </div>
+    </main>
   );
 };

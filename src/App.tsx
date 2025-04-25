@@ -4,6 +4,7 @@ import { Projects } from './pages/Projects';
 import { ProjectDetails } from './pages/ProjectDetails';
 import About from './pages/About';
 import { Academics } from './pages/Academics';
+import { TransitionLayout } from './components/TransitionLayout';
 import './App.css';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -11,6 +12,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <TransitionLayout>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
@@ -18,6 +20,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/academics" element={<Academics />} />
       </Routes>
+      </TransitionLayout>
     </Router>
   );
 }

@@ -740,6 +740,17 @@ body.transitioning {
   overflow: hidden;
 }
 
+/* Hide scrollbar while maintaining scroll functionality */
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox and other browsers */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
 
 @media (max-width: 768px) {
   .panels-container {

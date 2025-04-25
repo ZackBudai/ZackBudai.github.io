@@ -1,12 +1,13 @@
-import { Link } from 'react-router-dom';
+import { TransitionLink } from './TransitionLink';
+
 
 const Navigation = () => {
   return (
     <nav className="nav-links">
-      <Link to="/" className="projects-link">Home</Link>
-      <Link to="/about" className="projects-link">About</Link>
-      <Link to="/projects" className="projects-link">Projects</Link>
-      <Link to="/academics" className="projects-link">Academics</Link>
+      <TransitionLink to="/" className="projects-link">Home</TransitionLink>
+      <TransitionLink to="/about" className="projects-link">About</TransitionLink>
+      <TransitionLink to="/projects" className="projects-link">Projects</TransitionLink>
+      <TransitionLink to="/academics" className="projects-link">Academics</TransitionLink>
     </nav>
   );
 };
