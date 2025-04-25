@@ -1,6 +1,26 @@
 import React from 'react';
 import { RotatingPanel } from '../components/RotatingPanel';
-import { projects } from '../data/projectsData';
+
+const projects = [
+  {
+    id: 'interactive-web-app',
+    title: 'Interactive Web App',
+    description: 'A modern web application built with React and Node.js',
+    image: '/project1.jpg'
+  },
+  {
+    id: 'ecommerce-platform',
+    title: 'E-commerce Platform',
+    description: 'Full-stack e-commerce solution with modern technologies',
+    image: '/project2.jpg'
+  },
+  {
+    id: 'mobile-app',
+    title: 'Mobile App',
+    description: 'Cross-platform mobile application built with React Native',
+    image: '/project3.jpg'
+  }
+];
 
 export const Projects = () => {
   return (

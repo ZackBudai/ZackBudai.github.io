@@ -1,10 +1,8 @@
 import React from 'react';
-import Navigation from '../components/Navigation';
 
 const About: React.FC = () => {
   return (
     <div className="page-container">
-      <Navigation />
       <div className="glass-panel">
         <h1>About Me</h1>
         <div className="content-section">
