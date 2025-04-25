@@ -1,8 +1,10 @@
 import React from 'react';
+import NavMenu from '../components/NavMenu';
 
 const About: React.FC = () => {
   return (
     <div className="page-container">
+      <NavMenu />
       <div className="glass-panel">
         <h1>About Me</h1>
         <div className="content-section">

@@ -1,5 +1,6 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import NavMenu from '../components/NavMenu';
 
 export const ProjectDetails = () => {
   const { id } = useParams();
@@ -11,12 +12,7 @@ export const ProjectDetails = () => {
       exit={{ opacity: 0, y: -20 }}
       className="project-details"
     >
-      <nav className="navbar">
-        <div className="nav-content">
-          <Link to="/" className="back-button">← Back to Projects</Link>
-        </div>
-      </nav>
-      
+      <NavMenu />
       <div className="project-content">
         <h1>{id}</h1>
         {/* Project specific content will be dynamically loaded based on the ID */}

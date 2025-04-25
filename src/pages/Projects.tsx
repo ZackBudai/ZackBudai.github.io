@@ -1,5 +1,6 @@
 import React from 'react';
 import { RotatingPanel } from '../components/RotatingPanel';
+import NavMenu from '../components/NavMenu';
 
 const projects = [
   {
@@ -25,6 +26,7 @@ const projects = [
 export const Projects = () => {
   return (
     <div className="projects">
+      <NavMenu />
       <div className="projects-header">
         <div className="header-content">
           <h1>My Projects</h1>
