@@ -232,49 +232,133 @@ body {
 /* Project Details Page */
 .project-details {
   min-height: 100vh;
-  padding-top: 60px;
+  padding-bottom: 4rem;
 }
 
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+.project-content {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
   background: var(--panel-bg);
-  border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 4px 16px var(--glass-shadow);
-  backdrop-filter: blur(12px);
-  z-index: 1000;
-}
-
-.nav-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-}
-
-.back-button {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
-  border-radius: 6px;
+  box-shadow: 0 15px 25px var(--glass-shadow);
+  text-align: left;
+}
+
+.project-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 1.5rem;
+}
+
+.project-header h1 {
+  margin-top: 0;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.tech-tag {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(183, 45, 255, 0.2), rgba(255, 107, 44, 0.2));
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+}
+
+.project-image {
+  width: 100%;
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-description {
+  margin: 2rem 0;
+  line-height: 1.7;
+}
+
+.project-description h2 {
+  margin-top: 0;
+  color: var(--accent-color);
+  font-size: 1.8rem;
+}
+
+.project-description p {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+}
+
+.project-links {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.project-link-button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(183, 45, 255, 0.3);
+}
+
+.project-link-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(183, 45, 255, 0.4);
+}
+
+/* Project Not Found Styles */
+.project-not-found .container {
+  max-width: 600px;
+  margin: 5rem auto;
+  padding: 2.5rem;
+  text-align: center;
   background: var(--panel-bg);
-  backdrop-filter: blur(8px);
-  box-shadow: 
-    0 4px 16px var(--glass-shadow),
-    inset 0 0 8px var(--glass-highlight);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}
+
+.project-not-found button {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border: none;
+  color: white;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  margin-top: 1.5rem;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.back-button:hover {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-  box-shadow: 
-    0 8px 24px var(--accent-glow),
-    inset 0 0 16px var(--glass-highlight);
-  background: rgba(255, 107, 44, 0.1);
+.project-not-found button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(183, 45, 255, 0.3);
 }
 
 /* Glass card for project details */
