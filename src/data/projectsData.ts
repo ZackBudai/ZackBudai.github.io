@@ -15,7 +15,7 @@ export const projects: Project[] = [
     id: 'markdown-jupyter-graph',
     title: 'Web-based Markdown and Jupyter Document Graph',
     description: 'A visualization tool that creates interactive knowledge graphs from markdown and Jupyter notebooks',
-    image: '/project1.jpg',
+    image: 'https://placehold.co/600x400?text=Document+Graph',
     longDescription: 'This project is a web-based visualization tool that analyzes markdown and Jupyter notebook documents to create interactive knowledge graphs. It helps users understand relationships between concepts and navigate through complex documentation more effectively.',
     technologies: ['JavaScript', 'D3.js', 'Python', 'Jupyter'],
     externalLink: 'https://hashedcookies.com/graph/'
@@ -24,7 +24,7 @@ export const projects: Project[] = [
     id: 'ecommerce-platform',
     title: 'E-commerce Platform',
     description: 'Full-stack e-commerce solution with modern technologies',
-    image: '/project2.jpg',
+    image: 'https://placehold.co/600x400?text=E-commerce+Platform',
     longDescription: 'A comprehensive e-commerce platform built with modern web technologies, featuring product management, shopping cart functionality, user authentication, and payment processing.',
     technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     externalLink: ''
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     id: 'mobile-app',
     title: 'Mobile App',
     description: 'Cross-platform mobile application built with React Native',
-    image: '/project3.jpg',
+    image: 'https://placehold.co/600x400?text=Mobile+App',
     longDescription: 'A cross-platform mobile application that provides users with an intuitive interface for accessing content and services on the go. Available for both iOS and Android platforms.',
     technologies: ['React Native', 'TypeScript', 'Firebase'],
     externalLink: ''
