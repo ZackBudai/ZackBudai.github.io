@@ -1,30 +1,22 @@
 import React from 'react';
 import { RotatingPanel } from '../components/RotatingPanel';
+import Navigation from '../components/Navigation';
 
-const projects = [
-  {
-    id: 'interactive-web-app',
-    title: 'Interactive Web App',
-    description: 'A modern web application built with React and Node.js',
-    image: '/project1.jpg'
-  },
-  {
-    id: 'ecommerce-platform',
-    title: 'E-commerce Platform',
-    description: 'Full-stack e-commerce solution with modern technologies',
-    image: '/project2.jpg'
-  },
-  {
-    id: 'mobile-app',
-    title: 'Mobile App',
-    description: 'Cross-platform mobile application built with React Native',
-    image: '/project3.jpg'
-  }
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  technologies: string[];
+}
+
+const projectsList: Project[] = [
+  // Add your project data here
 ];
 
 export const Projects = () => {
   return (
     <div className="projects">
+      <Navigation />
       <div className="projects-header">
         <div className="header-content">
           <h1>My Projects</h1>
@@ -32,7 +24,7 @@ export const Projects = () => {
         </div>
       </div>
       <div className="panels-container">
-        {projects.map(project => (
+        {projectsList.map(project => (
           <React.Fragment key={project.id}>
             <RotatingPanel project={project} />
             <div className="spacer" />

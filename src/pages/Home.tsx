@@ -1,16 +1,12 @@
-import { Link } from 'react-router-dom';
+import Navigation from '../components/Navigation';
 
 export const Home = () => {
   return (
     <div className="home-container">
-      <nav className="nav-links">
-        <Link to="/about" className="projects-link">About</Link>
-        <Link to="/projects" className="projects-link">Projects</Link>
-        <Link to="/academics" className="projects-link">Academics</Link>
-      </nav>
+      <Navigation />
       <div className="home-content">
         <h1>Zack Budai</h1>
-        <p>Software Developer</p>
+        <p>Computer Scientist and Electrical Engineer</p>
       </div>
     </div>
   );
