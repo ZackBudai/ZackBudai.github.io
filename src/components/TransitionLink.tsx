@@ -35,13 +35,13 @@ export const TransitionLink = ({ to, children, className }: TransitionLinkProps)
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     
-    // Trigger the transition (this will be caught by TransitionLayout)
+    // Start fade out
     transitionEvents.startTransition();
     
-    // After a delay that matches our CSS transition time, navigate to the new URL
+    // Wait for fade out to complete before navigating
     setTimeout(() => {
       navigate(to);
-    }, 500); // This must match the CSS transition duration
+    }, 300); // Shorter delay for smoother transition
   };
   
   return (

@@ -689,11 +689,35 @@ body {
     inset 0 0 32px rgba(255, 255, 255, 0.12);
 }
 
+/* Page Transitions */
+.page-transition {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.page-transition.fadeIn {
+  opacity: 1;
+}
+
+.page-transition.fadeOut {
+  opacity: 0;
+}
+
+/* Ensure content stays visible during transitions */
+.page-transition > * {
+  min-height: 100vh;
+}
+
 /* Glassomorphism Page Transitions */
 .glass-transition {
   width: 100%;
   height: 100vh; /* Fixed height instead of min-height */
-  transition: opacity 0.5s ease, backdrop-filter 0.5s ease, transform 0.5s ease;
+  will-change: opacity, backdrop-filter, transform;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: fixed; /* Fixed position to prevent scroll issues */
   top: 0;
   left: 0;

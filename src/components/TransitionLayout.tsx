@@ -41,7 +41,7 @@ export const TransitionLayout = ({ children }: TransitionLayoutProps) => {
   }, []);
 
   return (
-    <main className={`page-wrapper ${transitionStage}`}>
+    <main className={`page-transition ${transitionStage}`}>
       {displayChildren}
     </main>
   );
