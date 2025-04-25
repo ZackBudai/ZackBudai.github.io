@@ -22,10 +22,8 @@ const router = createHashRouter([
     ]
   }
 ], {
-  // This will make the hash router use nicer URLs
-  future: {
-    v7_prependBasename: true
-  }
+  // Configure basename for GitHub Pages
+  basename: ""
 });
 
 createRoot(document.getElementById('root')!).render(
