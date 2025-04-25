@@ -5,10 +5,12 @@ import { ProjectDetails } from './pages/ProjectDetails';
 import About from './pages/About';
 import { Academics } from './pages/Academics';
 import './App.css';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
