@@ -1,8 +1,9 @@
 import NavMenu from '../components/NavMenu';
+import ScrollIndicator from '../components/ScrollIndicator';
 
 export const Academics = () => {
   return (
-    <div className="projects">
+    <div className="projects scrollable-content">
       <NavMenu />
       <div className="projects-header">
         <div className="header-content">
@@ -85,6 +86,7 @@ export const Academics = () => {
           </div>
         </div>
       </div>
+      <ScrollIndicator />
     </div>
   );
 };

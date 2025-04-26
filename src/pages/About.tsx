@@ -1,14 +1,15 @@
 import React from 'react';
 import NavMenu from '../components/NavMenu';
+import ScrollIndicator from '../components/ScrollIndicator';
 
 const About: React.FC = () => {
   return (
-    <div className="projects">
+    <div className="projects scrollable-content">
       <NavMenu />
       <div className="projects-header">
         <div className="header-content">
           <h1>About Me</h1>
-          <p>Computer Scientist and Electrical Engineer passionate about innovation</p>
+          <p>Innovating at the intersection of Hardware and Software</p>
         </div>
       </div>
       <div className="content-wrapper">
@@ -102,6 +103,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
+      <ScrollIndicator />
     </div>
   );
 };

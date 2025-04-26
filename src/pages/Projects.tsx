@@ -1,6 +1,7 @@
 import React from 'react';
 import { RotatingPanel } from '../components/RotatingPanel';
 import NavMenu from '../components/NavMenu';
+import ScrollIndicator from '../components/ScrollIndicator';
 
 const projects = [
   {
@@ -41,6 +42,7 @@ export const Projects = () => {
           </React.Fragment>
         ))}
       </div>
+      <ScrollIndicator />
     </div>
   );
 };

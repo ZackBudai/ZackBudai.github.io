@@ -6,7 +6,7 @@ export const Home = () => {
       <NavMenu />
       <div className="home-content">
         <h1>Zack Budai</h1>
-        <p>Software Developer</p>
+        <p>Electrical Engineer and Computer Scientist</p>
       </div>
     </div>
   );
