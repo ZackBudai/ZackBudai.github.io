@@ -35,7 +35,13 @@ export const TransitionLink = ({ to, children, className }: TransitionLinkProps)
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     
-    // Start fade out
+    // If clicking current page link, just scroll to top
+    if (window.location.pathname === to) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    
+    // Otherwise perform transition
     transitionEvents.startTransition();
     
     // Wait for fade out to complete before navigating
