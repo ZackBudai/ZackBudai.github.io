@@ -57,6 +57,73 @@ export const Academics = () => {
               </div>
             </div>
 
+            {/* Awards and Honours Section */}
+            <div className="education-section">
+              <h2>Awards and Honours</h2>
+              
+              <div className="timeline-item">
+                <div className="timeline-date">2024</div>
+                <div className="timeline-content">
+                  <ul>
+                    <li>Griffith Academic Excellence Award</li>
+                    <li>Griffith Honours College Summer Research Bursary in AI</li>
+                    <li>Energy Queensland Future of Energy Engineering Scholarship</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="timeline-item">
+                <div className="timeline-date">2023</div>
+                <div className="timeline-content">
+                  <ul>
+                    <li>Griffith Academic Excellence Award</li>
+                    <li>Griffith Honours College Summer Research Bursary in AI</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="timeline-item">
+                <div className="timeline-date">2022</div>
+                <div className="timeline-content">
+                  <ul>
+                    <li>CyberTaipan National Champion (1st Place)</li>
+                    <li>Australian Defence Force Future Innovator Award</li>
+                    <li>Queensland XR Hub Aerospace Xelerated Boeing Microsoft Pitch Challenge Finalist</li>
+                    <li>ACS Jobs in the Metaverse Arkio VR Competition Winner</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="timeline-item">
+                <div className="timeline-date">2021</div>
+                <div className="timeline-content">
+                  <ul>
+                    <li>CyberTaipan Finalist (Top 5 National)</li>
+                    <li>ACS Gold Coast Higher Education Career Challenge Winner</li>
+                    <li>Australian Defence Force Future Innovator Award</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="timeline-item">
+                <div className="timeline-date">2020</div>
+                <div className="timeline-content">
+                  <ul>
+                    <li>CyberTaipan Finalist (Top 10 National)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="timeline-item">
+                <div className="timeline-date">2019</div>
+                <div className="timeline-content">
+                  <ul>
+                    <li>Admission into MENSA</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             {/* Certificates and Courses Section */}
             <div className="education-section">
               <h2>Certificates and Courses</h2>
