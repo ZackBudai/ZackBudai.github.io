@@ -26,14 +26,20 @@ type TransitionLinkProps = {
   to: string;
   children: ReactNode;
   className?: string;
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
 };
 
 // Custom link component that handles the transition sequence
-export const TransitionLink = ({ to, children, className }: TransitionLinkProps) => {
+export const TransitionLink = ({ to, children, className, onClick }: TransitionLinkProps) => {
   const navigate = useNavigate();
   
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    
+    // Call the custom onClick handler if provided
+    if (onClick) {
+      onClick(e);
+    }
     
     // If clicking current page link, just scroll to top
     if (window.location.pathname === to) {
