@@ -13,16 +13,16 @@ const NavMenu = () => {
 
   return (
     <nav className="nav-links">
-      <TransitionLink to="/" className="projects-link" onClick={() => handleNavClick('/')}>
+      <TransitionLink to="/" className="projects-link" onClick={(e) => handleNavClick('/', e)}>
         Home
       </TransitionLink>
-      <TransitionLink to="/about" className="projects-link" onClick={() => handleNavClick('/about')}>
+      <TransitionLink to="/about" className="projects-link" onClick={(e) => handleNavClick('/about', e)}>
         About
       </TransitionLink>
-      <TransitionLink to="/projects" className="projects-link" onClick={() => handleNavClick('/projects')}>
+      <TransitionLink to="/projects" className="projects-link" onClick={(e) => handleNavClick('/projects', e)}>
         Projects
       </TransitionLink>
-      <TransitionLink to="/academics" className="projects-link" onClick={() => handleNavClick('/academics')}>
+      <TransitionLink to="/academics" className="projects-link" onClick={(e) => handleNavClick('/academics', e)}>
         Academics
       </TransitionLink>
     </nav>
