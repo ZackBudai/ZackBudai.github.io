@@ -16,6 +16,29 @@ type ProjectsMap = {
 };
 
 const projectDetails: ProjectsMap = {
+  'particle-universe': {
+    title: '3D Particle Universe',
+    description: `An immersive multiplayer space combat game where players navigate through a dynamic particle-based universe. Built on a pure peer-to-peer architecture using WebRTC, featuring PvP combat mechanics and a sophisticated anti-cheat system to ensure fair gameplay.`,
+    features: [
+      'Pure peer-to-peer multiplayer using WebRTC',
+      'Decentralized game state synchronization',
+      'Dynamic particle-based universe',
+      'PvP combat system with hit detection',
+      'Client-side prediction and reconciliation',
+      'Anti-cheat system with peer verification',
+      'Player progression and customization'
+    ],
+    technologies: [
+      'WebRTC for peer-to-peer networking',
+      'Three.js for 3D rendering',
+      'WebGL for graphics acceleration',
+      'Custom game state synchronization',
+      'Mesh network topology for player discovery',
+      'Anti-cheat with distributed validation',
+      'Browser-native cryptography for security'
+    ],
+    image: '/images/particle-universe.png'
+  },
   'portfolio-website': {
     title: 'Portfolio Website',
     description: `A modern, responsive portfolio website built with React and TypeScript. Features a unique 3D rotating panel design, smooth page transitions, and a glassmorphic UI that creates an engaging and interactive user experience.`,

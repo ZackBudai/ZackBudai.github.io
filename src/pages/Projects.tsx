@@ -17,10 +17,10 @@ const projects = [
     image: '/images/portfolio.png'
   },
   {
-    id: 'mobile-app',
-    title: 'Mobile App',
-    description: 'Cross-platform mobile application built with React Native',
-    image: '/project3.jpg'
+    id: 'particle-universe',
+    title: '3D Particle Universe',
+    description: 'Peer-to-peer multiplayer space combat game with WebRTC networking and anti-cheat system',
+    image: '/images/particle-universe.png'
   }
 ];
 
