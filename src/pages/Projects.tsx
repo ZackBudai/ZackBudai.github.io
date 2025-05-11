@@ -8,21 +8,21 @@ const projects = [
 		id: 'graph-markdown-jupyter',
 		title: 'Graph-Based Markdown and Jupyter Workspace',
 		description:
-			'A workspace integrating graph-based navigation with Markdown and Jupyter notebooks',
+			'An innovative workspace environment that combines graph-based navigation with rich documentation and interactive code execution capabilities.',
 		image: '/images/graph-project.png',
 	},
 	{
 		id: 'portfolio-website',
 		title: 'Portfolio Website',
 		description:
-			'Modern React portfolio with interactive 3D elements and smooth transitions',
+			'A modern portfolio featuring 3D rotating panels, smooth transitions, and a beautiful glassmorphic UI design that creates an engaging and interactive experience.',
 		image: '/images/portfolio.png',
 	},
 	{
 		id: 'particle-universe',
 		title: '3D Particle Universe',
 		description:
-			'Fun concept space combat game with central server and dual interfaces for players and spectators',
+			'A multiplayer space combat game with a unique dual-interface system, allowing players to engage in combat or spectate through cinematic camera views.',
 		image: '/images/particle-universe.png',
 	},
 ];
