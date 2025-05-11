@@ -296,20 +296,11 @@ body {
   backdrop-filter: blur(8px);
   transition: all 0.3s ease;
   margin: 1rem 0;
+  pointer-events: auto;
 }
 
-/* Remove rotating panel styles and replace with static cards */
-.project-card {
-  transform: none !important;
-  opacity: 1 !important;
-  position: relative;
-  left: 0;
-  width: 100%;
-}
-
-/* Remove spacer as it's no longer needed */
 .spacer {
-  display: none;
+  height: 25vh;
 }
 .rotating-panel {
   width: 90%;
@@ -325,6 +316,8 @@ body {
   left: 50%;
   transform-origin: right center !important;
   backdrop-filter: blur(12px);
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .panel-content {
@@ -333,6 +326,9 @@ body {
   color: var(--text-color);
   text-decoration: none;
   display: block;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
 }
 
 .project-card {
@@ -390,11 +386,16 @@ body {
   margin-top: 1rem;
   text-shadow: 0 0 10px var(--accent-glow);
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .project-link:hover {
   color: var(--primary-color);
   text-shadow: 0 0 15px var(--primary-glow);
+  transform: translateY(-2px);
 }
 
 .spacer {
