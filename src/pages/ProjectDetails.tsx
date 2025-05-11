@@ -18,24 +18,24 @@ type ProjectsMap = {
 const projectDetails: ProjectsMap = {
   'particle-universe': {
     title: '3D Particle Universe',
-    description: `An immersive multiplayer space combat game where players navigate through a dynamic particle-based universe. Built on a pure peer-to-peer architecture using WebRTC, featuring PvP combat mechanics and a sophisticated anti-cheat system to ensure fair gameplay.`,
+    description: `An immersive multiplayer space combat game featuring a static particle universe accessed through two distinct interfaces: hashedcookies.com/stars for player interactions and hashedcookies.com/camera for spectator views. Built with a client-server architecture using a central game server and plain HTML/JS client.`,
     features: [
-      'Pure peer-to-peer multiplayer using WebRTC',
-      'Decentralized game state synchronization',
-      'Dynamic particle-based universe',
+      'Centralized game server architecture',
+      'Client-server state synchronization',
+      'Static particle-based universe',
       'PvP combat system with hit detection',
       'Client-side prediction and reconciliation',
-      'Anti-cheat system with peer verification',
-      'Player progression and customization'
+      'Server-side anti-cheat system',
+      'Dual interface: player and spectator views'
     ],
     technologies: [
-      'WebRTC for peer-to-peer networking',
+      'Node.js game server',
+      'HTML5/JavaScript client',
       'Three.js for 3D rendering',
-      'WebGL for graphics acceleration',
-      'Custom game state synchronization',
-      'Mesh network topology for player discovery',
-      'Anti-cheat with distributed validation',
-      'Browser-native cryptography for security'
+      'Plain JavaScript for game logic',
+      'WebSocket for real-time communication',
+      'Server-side game state management',
+      'Custom anti-cheat implementation'
     ],
     image: '/images/particle-universe.png'
   },
