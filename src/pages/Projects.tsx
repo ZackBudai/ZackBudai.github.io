@@ -11,10 +11,10 @@ const projects = [
     image: '/images/graph-project.png'
   },
   {
-    id: 'ecommerce-platform',
-    title: 'E-commerce Platform',
-    description: 'Full-stack e-commerce solution with modern technologies',
-    image: '/project2.jpg'
+    id: 'portfolio-website',
+    title: 'Portfolio Website',
+    description: 'Modern React portfolio with interactive 3D elements and smooth transitions',
+    image: '/images/portfolio-website.png'
   },
   {
     id: 'mobile-app',

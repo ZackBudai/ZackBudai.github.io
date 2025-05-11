@@ -16,6 +16,29 @@ type ProjectsMap = {
 };
 
 const projectDetails: ProjectsMap = {
+  'portfolio-website': {
+    title: 'Portfolio Website',
+    description: `A modern, responsive portfolio website built with React and TypeScript. Features a unique 3D rotating panel design, smooth page transitions, and a glassmorphic UI that creates an engaging and interactive user experience.`,
+    features: [
+      'Interactive 3D rotating panels with motion tracking',
+      'Smooth page transitions with fade effects',
+      'Glassmorphic UI design with dynamic blur effects',
+      'Responsive layout that works on all devices',
+      'TypeScript for enhanced type safety and development experience',
+      'Custom animation system for subtle visual feedback',
+      'SEO optimized with meta tags and semantic HTML'
+    ],
+    technologies: [
+      'React 19 with TypeScript',
+      'Framer Motion for animations',
+      'React Router v7 for navigation',
+      'CSS3 with custom animations',
+      'Vite for fast development and building',
+      'GitHub Actions for automated deployment'
+    ],
+    image: '/images/portfolio-website.png',
+    liveUrl: 'https://zackbudai.github.io'
+  },
   'graph-markdown-jupyter': {
     title: 'Graph-Based Markdown and Jupyter Workspace',
     description: `A sophisticated workspace environment that combines the power of graph-based navigation with Markdown documentation and Jupyter notebooks. This innovative system allows users to create, navigate, and understand complex documentation and code relationships through an intuitive graph interface.`,
