@@ -22,7 +22,7 @@ const projects = [
 		id: 'particle-universe',
 		title: '3D Particle Universe',
 		description:
-			'Static universe space combat game with central server and dual interfaces for players and spectators',
+			'Fun concept space combat game with central server and dual interfaces for players and spectators',
 		image: '/images/particle-universe.png',
 	},
 ];

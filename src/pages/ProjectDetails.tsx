@@ -22,7 +22,7 @@ type ProjectsMap = {
 const projectDetails: ProjectsMap = {
   'particle-universe': {
     title: '3D Particle Universe',
-    description: `An immersive multiplayer space combat game featuring a static particle universe accessed through two distinct interfaces: hashedcookies.com/stars for player interactions and hashedcookies.com/camera for spectator views. Built with a client-server architecture using a central game server and plain HTML/JS client.`,
+    description: `A fun concept multiplayer space combat game featuring a static particle universe accessed through two distinct interfaces: hashedcookies.com/stars for player interactions and hashedcookies.com/camera for spectator views. Built with a client-server architecture using a central game server and plain HTML/JS client.`,
     features: [
       'Centralized game server architecture',
       'Client-server state synchronization',
