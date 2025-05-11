@@ -499,7 +499,6 @@ body {
   gap: 0.5rem;
   color: var(--accent-color);
   font-weight: 500;
-  margin-top: 1.5rem;
   text-shadow: 0 0 10px var(--accent-glow);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -1147,4 +1146,12 @@ body.transitioning {
     transform: translateY(-200px) scale(0.2) rotate(180deg);
     opacity: 0;
   }
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
 }

@@ -8,6 +8,10 @@ interface Project {
   features: string[];
   technologies: string[];
   liveUrl?: string;
+  liveUrls?: {
+    player?: string;
+    spectator?: string;
+  };
   image?: string;
 }
 
@@ -37,7 +41,11 @@ const projectDetails: ProjectsMap = {
       'Server-side game state management',
       'Custom anti-cheat implementation'
     ],
-    image: '/images/particle-universe.png'
+    image: '/images/particle-universe.png',
+    liveUrls: {
+      player: 'https://hashedcookies.com/stars',
+      spectator: 'https://hashedcookies.com/camera'
+    }
   },
   'portfolio-website': {
     title: 'Portfolio Website',
@@ -109,11 +117,23 @@ export const ProjectDetails = () => {
             
             <div className="project-description">
               <p>{project.description}</p>
-              {project.liveUrl && (
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-live-link">
-                  Visit Live Project →
-                </a>
-              )}
+              <div className="project-links">
+                {project.liveUrl && (
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-live-link">
+                    Visit Live Project →
+                  </a>
+                )}
+                {project.liveUrls?.player && (
+                  <a href={project.liveUrls.player} target="_blank" rel="noopener noreferrer" className="project-live-link">
+                    Play Game →
+                  </a>
+                )}
+                {project.liveUrls?.spectator && (
+                  <a href={project.liveUrls.spectator} target="_blank" rel="noopener noreferrer" className="project-live-link">
+                    Watch Live →
+                  </a>
+                )}
+              </div>
             </div>
             
             <div className="project-section">
