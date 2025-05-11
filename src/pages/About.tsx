@@ -9,17 +9,49 @@ const About: React.FC = () => {
       <div className="projects-header">
         <div className="header-content">
           <h1>About Me</h1>
-          <p>Innovating at the intersection of Hardware and Software</p>
+          <p>Innovating at the Intersection of Hardware and Software Security</p>
         </div>
       </div>
       <div className="content-wrapper">
         <div className="glass-panel">
           <div className="content-section">
-            <p>
-              I am a computer scientist and electrical engineer passionate about creating elegant solutions to complex problems.
-              With a strong foundation in both software and hardware development, and a drive for innovation, I continuously
-              explore new technologies and methodologies to enhance my capabilities across multiple disciplines.
-            </p>
+            <div className="about-content">
+              <p>
+                I am a Computer Scientist and Electrical Engineer with a profound passion for cybersecurity and technological innovation.
+                My journey in technology began with a fascination for understanding how systems work, both in hardware and software,
+                which led me to pursue a challenging dual degree in Computer Science and Electrical Engineering at Griffith University.
+              </p>
+              
+              <p>
+                My expertise in cybersecurity has been proven through numerous achievements, including leading a team to victory in
+                national-level cybersecurity competitions like CyberTaipan. I continue to actively engage in Capture The Flag (CTF)
+                competitions with the team I founded in high school, constantly pushing the boundaries of my knowledge in areas like
+                reverse engineering and cryptography. In 2025, I'm proud to represent Queensland in the WorldSkills national championships
+                for programming, showcasing my commitment to excellence in software development.
+              </p>
+
+              <p>
+                What truly sets me apart is my specialized interest in IoT and RF technology security. The rapidly evolving landscape
+                of wireless technologies presents unique challenges at the intersection of hardware and software security - exactly
+                where my dual degree positions me to make significant contributions. I'm particularly drawn to exploring vulnerabilities
+                and developing secure solutions in wireless communications, combining my understanding of both electronic systems and
+                software architecture.
+              </p>
+
+              <p>
+                My decision to pursue both Electrical Engineering and Computer Science was strategic - I recognized early that the
+                future of cybersecurity lies in understanding both the hardware and software aspects of systems. This comprehensive
+                understanding allows me to approach security challenges from multiple angles, whether it's analyzing RF protocols
+                for vulnerabilities or implementing cryptographic solutions in embedded systems.
+              </p>
+
+              <p>
+                Looking ahead, I aim to be more than just a security professional - I want to be an innovator who creates and
+                implements novel security solutions. My goal is to contribute to the field of wireless technology security,
+                particularly in developing robust security frameworks for emerging IoT and RF technologies. I believe my unique
+                combination of skills and passionate drive for innovation positions me perfectly to tackle these future challenges.
+              </p>
+            </div>
             
             <div className="skills-section">
               <h2>Technical Skills</h2>

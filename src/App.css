@@ -1155,3 +1155,21 @@ body.transitioning {
   margin-top: 1.5rem;
   justify-content: center;
 }
+
+.about-content {
+  margin-bottom: 3rem;
+}
+
+.about-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.about-content p:first-of-type {
+  font-size: 1.4rem;
+  color: var(--text-color);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
