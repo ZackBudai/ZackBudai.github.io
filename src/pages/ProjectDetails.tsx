@@ -7,6 +7,8 @@ interface Project {
   description: string;
   features: string[];
   technologies: string[];
+  liveUrl?: string;
+  image?: string;
 }
 
 type ProjectsMap = {
@@ -31,7 +33,9 @@ const projectDetails: ProjectsMap = {
       'Jupyter integration',
       'Markdown processing',
       'WebSocket for real-time updates'
-    ]
+    ],
+    liveUrl: 'https://hashedcookies.com/graph/',
+    image: '/images/graph-project.png'
   }
 };
 
@@ -51,8 +55,19 @@ export const ProjectDetails = () => {
         {project ? (
           <>
             <h1>{project.title}</h1>
+            {project.image && (
+              <div className="project-image">
+                <img src={project.image} alt={project.title} />
+              </div>
+            )}
+            
             <div className="project-description">
               <p>{project.description}</p>
+              {project.liveUrl && (
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-live-link">
+                  Visit Live Project →
+                </a>
+              )}
             </div>
             
             <div className="project-section">
