@@ -14,7 +14,7 @@ const projects = [
     id: 'portfolio-website',
     title: 'Portfolio Website',
     description: 'Modern React portfolio with interactive 3D elements and smooth transitions',
-    image: '/images/portfolio-website.png'
+    image: '/images/portfolio.png'
   },
   {
     id: 'mobile-app',
