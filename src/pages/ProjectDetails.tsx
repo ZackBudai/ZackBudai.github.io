@@ -2,7 +2,18 @@ import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import NavMenu from '../components/NavMenu';
 
-const projectDetails = {
+interface Project {
+  title: string;
+  description: string;
+  features: string[];
+  technologies: string[];
+}
+
+type ProjectsMap = {
+  [key: string]: Project;
+};
+
+const projectDetails: ProjectsMap = {
   'graph-markdown-jupyter': {
     title: 'Graph-Based Markdown and Jupyter Workspace',
     description: `A sophisticated workspace environment that combines the power of graph-based navigation with Markdown documentation and Jupyter notebooks. This innovative system allows users to create, navigate, and understand complex documentation and code relationships through an intuitive graph interface.`,
@@ -47,7 +58,7 @@ export const ProjectDetails = () => {
             <div className="project-section">
               <h2>Key Features</h2>
               <ul>
-                {project.features.map((feature, index) => (
+                {project.features.map((feature: string, index: number) => (
                   <li key={index}>{feature}</li>
                 ))}
               </ul>
@@ -56,7 +67,7 @@ export const ProjectDetails = () => {
             <div className="project-section">
               <h2>Technologies Used</h2>
               <ul>
-                {project.technologies.map((tech, index) => (
+                {project.technologies.map((tech: string, index: number) => (
                   <li key={index}>{tech}</li>
                 ))}
               </ul>
