@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+      // Store the segment after the domain as the pathname for later use
+      sessionStorage.redirect = window.location.pathname + window.location.search + window.location.hash;
+      // Redirect to the root domain
+      window.location.replace(window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + '/');
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>
