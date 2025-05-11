@@ -5,9 +5,9 @@ import ScrollIndicator from '../components/ScrollIndicator';
 
 const projects = [
   {
-    id: 'interactive-web-app',
-    title: 'Interactive Web App',
-    description: 'A modern web application built with React and Node.js',
+    id: 'graph-markdown-jupyter',
+    title: 'Graph-Based Markdown and Jupyter Workspace',
+    description: 'A workspace integrating graph-based navigation with Markdown and Jupyter notebooks',
     image: '/project1.jpg'
   },
   {
