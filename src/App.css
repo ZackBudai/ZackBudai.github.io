@@ -318,6 +318,7 @@ body {
   backdrop-filter: blur(12px);
   pointer-events: auto;
   cursor: pointer;
+  z-index: 1;
 }
 
 .panel-content {
@@ -387,15 +388,23 @@ body {
   text-shadow: 0 0 10px var(--accent-glow);
   transition: all 0.3s ease;
   position: relative;
-  z-index: 2;
+  z-index: 1000;
   cursor: pointer;
   pointer-events: auto;
+  padding: 0.5rem 1rem;
+  background: rgba(18, 18, 26, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
 }
 
 .project-link:hover {
   color: var(--primary-color);
   text-shadow: 0 0 15px var(--primary-glow);
   transform: translateY(-2px);
+  background: rgba(183, 45, 255, 0.15);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px var(--primary-glow);
 }
 
 .spacer {
