@@ -8,7 +8,8 @@ const projects = [
     id: 'graph-markdown-jupyter',
     title: 'Graph-Based Markdown and Jupyter Workspace',
     description: 'A workspace integrating graph-based navigation with Markdown and Jupyter notebooks',
-    image: '/project1.jpg'
+    image: '/images/graph-project.png',
+    url: 'https://hashedcookies.com/graph/'
   },
   {
     id: 'ecommerce-platform',

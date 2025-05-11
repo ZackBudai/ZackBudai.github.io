@@ -7,6 +7,7 @@ interface ProjectData {
   title: string;
   description: string;
   image?: string;
+  url?: string;
 }
 
 interface RotatingPanelProps {
@@ -45,14 +46,25 @@ export const RotatingPanel: React.FC<RotatingPanelProps> = ({ project }) => {
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.3 }}
       >
-        <Link to={`/project/${project.id}`} className="panel-content">
-          <h2>{project.title}</h2>
-          <div className="project-card">
-            {project.image && <img src={project.image} alt={project.title} />}
-            <p>{project.description}</p>
-            <span className="project-link">View Project →</span>
-          </div>
-        </Link>
+        {project.url ? (
+          <a href={project.url} target="_blank" rel="noopener noreferrer" className="panel-content">
+            <h2>{project.title}</h2>
+            <div className="project-card">
+              {project.image && <img src={project.image} alt={project.title} />}
+              <p>{project.description}</p>
+              <span className="project-link">Visit Project →</span>
+            </div>
+          </a>
+        ) : (
+          <Link to={`/project/${project.id}`} className="panel-content">
+            <h2>{project.title}</h2>
+            <div className="project-card">
+              {project.image && <img src={project.image} alt={project.title} />}
+              <p>{project.description}</p>
+              <span className="project-link">View Project →</span>
+            </div>
+          </Link>
+        )}
       </motion.div>
     </div>
   );
