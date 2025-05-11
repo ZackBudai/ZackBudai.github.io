@@ -1,54 +1,35 @@
-# React + TypeScript + Vite
+# Zack Budai's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my portfolio website repository! This site serves as a showcase of my journey as an Electrical Engineer and Computer Scientist, featuring my projects, academic achievements, and professional development.
 
-Currently, two official plugins are available:
+## 🌟 Featured Projects
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 3D Particle Universe
+A multiplayer space combat game with a unique dual-interface system. Players can engage in combat through an interactive interface or watch the action through a cinematic spectator view.
 
-## Expanding the ESLint configuration
+### Graph-Based Markdown and Jupyter Workspace
+An innovative documentation system that combines graph-based navigation with Markdown and Jupyter notebooks, making complex documentation relationships visible and intuitive.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Portfolio Website
+This website itself! Built with modern web technologies, featuring 3D rotating panels, smooth transitions, and a glassmorphic UI design that creates an engaging user experience.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🎓 Education
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Dual Degree at Griffith University (2023-2026)
+  - Bachelor of Computer Science (Data Science and AI)
+  - Bachelor of Engineering (Electrical and Electronic)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🏆 Recent Achievements
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- Energy Queensland Future of Energy Engineering Scholarship (2024)
+- Griffith Honours College Summer Research Bursary in AI (2023, 2024)
+- Academic Excellence Awards
+
+## 🔗 Live Site
+
+Visit my portfolio at [zackbudai.github.io](https://zackbudai.github.io)
+
+## 📫 Get in Touch
+
+Feel free to reach out for collaborations or just to say hi! You can find me on [LinkedIn](https://www.linkedin.com/in/zack-budai).
 ```
